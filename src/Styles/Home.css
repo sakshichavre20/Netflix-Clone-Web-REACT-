@@ -1,0 +1,31 @@
+.firstMovie {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+
+  display: block;
+  background-color: "rgba(0, 0, 0, 0.5)";
+  overflow-x: hidden;
+}
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+  flex: 1;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.imgBackdrop {
+  display: flex;
+  position: absolute;
+  /* top: 100px; */
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  overflow-y: hidden;
+  overflow-x: hidden;
+  align-items: center;
+  justify-content: flex-start;
+}
