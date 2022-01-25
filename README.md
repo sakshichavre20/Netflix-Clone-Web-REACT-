@@ -1,6 +1,9 @@
-### NETFLIX CLONE 
+####                                                                             NETFLIX CLONE 
 
-##Built with
+## Built with
 
 * [React.js](https://reactjs.org/)
+
+## Prerequisites
+* npm
 
