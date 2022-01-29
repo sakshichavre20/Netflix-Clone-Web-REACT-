@@ -11,7 +11,6 @@ function Home() {
 
   return (
     <>
-      <TopTab />
       <div className="homeContainer">
         <img
           src="https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/1322/441322-h"

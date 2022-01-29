@@ -30,4 +30,5 @@ const Colors = {
   black: "#000000",
   grey: "#343a40",
 };
+
 export { Colors, useWindowDimensions };

@@ -2,8 +2,45 @@
   font-family: "DM Sans", sans-serif;
   color: white;
   cursor: pointer;
+  text-decoration: none;
 }
 .icon {
   cursor: pointer;
   margin-right: 20px;
+  size-adjust: 0.58;
+}
+.right-Toptab {
+  font-size-adjust: 0.58;
+}
+.Drawertext {
+  font-family: "DM Sans", sans-serif;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  /* // margin-top: 10px; */
+}
+.menuOption_div {
+  /* background-color: rgba(100, 0, 0, 1); */
+  width: 200px;
+  min-width: 200px;
+  display: flex;
+  /* // padding: 5px; */
+  padding-left: 20px;
+  flex-direction: row;
+  cursor: pointer;
+  height: 35px;
+  z-index: 50;
+  border-radius: 5px;
+  align-items: center;
+  transition: background-color 0.2s, transform 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  align-self: center;
+}
+div > .menuOption_div:hover {
+  background: rgba(20, 20, 20, 1);
+  transform: scale(1.05);
+}
+.Drawer {
+  overflow-x: hidden;
 }

@@ -1,4 +1,5 @@
-import { Colors } from "../Constants/Constants";
+import { Colors, useWindowDimensions } from "../Constants/Constants";
+
 const gloabalStyles = {
   container: {
     width: "100%",
@@ -7,6 +8,11 @@ const gloabalStyles = {
     display: "flex",
     overflowX: "hidden",
     overflowY: "scroll",
+  },
+  toptabText: {
+    fontSize: Window.width / 50,
+    color: "white",
+    marginLeft: Window.width / 20,
   },
 };
 
