@@ -5,7 +5,7 @@ function TvShows(props) {
     <div
       style={{
         display: "flex",
-        backgroundColor: "pink",
+        backgroundColor: "black",
         width: "100%",
         height: "100%",
       }}
