@@ -20,7 +20,13 @@ function CategoryList({ title, fetchUrl }) {
   }, [fetchUrl]);
   console.log(title, "+", movies);
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        marginLeft: width / 30,
+      }}
+    >
       <h2 style={{ color: "white" }}>{title}</h2>
       <div
         style={{ width: "100%", display: "flex", overflowX: "scroll" }}

@@ -17,18 +17,14 @@ function Home() {
           width: width,
           height: (width * 9) / 16,
           backgroundColor: "grey",
-          // position: "absolute",
         }}
       >
-        <h1 style={{ position: "absolute", zIndex: 20, top: width / 10 }}>
-          hello
-        </h1>
         <img
           src="https://image.tmdb.org/t/p/original//eG0oOQVsniPAuecPzDD1B1gnYWy.jpg"
           style={{
             objectFit: "contain",
             width: width,
-            // position: "absolute"
+            // position: "absolute",
           }}
         />
 
@@ -40,11 +36,99 @@ function Home() {
             width: width,
             position: "relative",
             bottom: (width * 9) / 40 + 3,
+
             // zIndex: -20,
           }}
         ></div>
+        <div
+          style={{
+            position: "relative",
+            // backgroundColor: "pink",
+            zIndex: 100,
+            display: "flex",
+
+            flexDirection: "column",
+            top: -width / 1.5,
+            paddingLeft: width / 30,
+          }}
+        >
+          <a
+            style={{
+              zIndex: 20,
+
+              fontSize: width / 25,
+              color: "white",
+              fontWeight: "bold",
+              fontFamily: "DM Sans",
+              left: width / 30,
+            }}
+          >
+            Movie Name
+          </a>
+          <a
+            style={{
+              zIndex: 20,
+
+              maxWidth: "40vw",
+              fontSize: width / 55,
+              color: "white",
+
+              fontFamily: "DM Sans",
+              left: width / 30,
+            }}
+          >
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s,
+          </a>
+          <div style={{ flexDirection: "row", display: "flex", marginTop: 20 }}>
+            <div
+              style={{
+                // alignItems: "center",
+                backgroundColor: "white",
+                paddingLeft: 5,
+                paddingRight: 5,
+                borderRadius: 10,
+                cursor: "pointer",
+              }}
+            >
+              <FaPlay size={15} />
+              <a
+                style={{ color: "black", marginLeft: 5, fontSize: width / 75 }}
+              >
+                Play
+              </a>
+            </div>
+            <div
+              style={{
+                // alignItems: "center",
+                backgroundColor: "rgba(0,0,0,0.5)",
+                paddingLeft: 5,
+                paddingRight: 5,
+                borderRadius: 10,
+                marginLeft: 10,
+                cursor: "pointer",
+              }}
+            >
+              <BiInfoCircle color={Colors.white} size={20} />
+              <a
+                style={{ color: "white", marginLeft: 5, fontSize: width / 75 }}
+              >
+                More Info
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div style={{ marginTop: -(width / 5), zIndex: 5 }}>
+      <div style={{ marginTop: -(width / 5), zIndex: 5, left: width / 30 }}>
+        <CategoryList
+          title={"NETFLIX ORIGINALS"}
+          fetchUrl={Requests.fetchNetflixOriginals}
+        />
+        <CategoryList
+          title={"Trending Now"}
+          fetchUrl={Requests.fetchTrending}
+        />
         <CategoryList
           title={"NETFLIX ORIGINALS"}
           fetchUrl={Requests.fetchNetflixOriginals}
