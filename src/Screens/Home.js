@@ -7,8 +7,22 @@ import { FaPlay } from "react-icons/fa";
 import { BiInfoCircle } from "react-icons/bi";
 import CategoryList from "../Components.js/CategoryList";
 import Requests from "../Requests/Requests";
+import instance from "./../Requests/axios";
+import TopTen from "./../Components.js/TopTen";
 function Home() {
   const { width, height } = useWindowDimensions();
+  const [movies, setMovies] = useState({});
+  const id = Math.floor(Math.random() * 20);
+  const imgURL = "https://image.tmdb.org/t/p/original/";
+  useEffect(() => {
+    const fetchMovies = async () => {
+      instance.get(Requests.fetchTrending).then((response) => {
+        console.log(response.data.results[id]);
+        setMovies(response.data.results[id]);
+      });
+    };
+    fetchMovies();
+  }, []);
 
   return (
     <div className="homeContainer">
@@ -20,7 +34,8 @@ function Home() {
         }}
       >
         <img
-          src="https://image.tmdb.org/t/p/original//eG0oOQVsniPAuecPzDD1B1gnYWy.jpg"
+          //src="https://image.tmdb.org/t/p/original//eG0oOQVsniPAuecPzDD1B1gnYWy.jpg"
+          src={`${imgURL}${movies.backdrop_path}`}
           style={{
             objectFit: "contain",
             width: width,
@@ -63,13 +78,15 @@ function Home() {
               left: width / 30,
             }}
           >
-            Movie Name
+            {movies.original_name
+              ? movies.original_name
+              : movies.original_title}
           </a>
           <a
             style={{
               zIndex: 20,
 
-              maxWidth: "40vw",
+              maxWidth: "45vw",
               fontSize: width / 55,
               color: "white",
 
@@ -77,19 +94,20 @@ function Home() {
               left: width / 30,
             }}
           >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s,
+            {movies.overview}
           </a>
           <div style={{ flexDirection: "row", display: "flex", marginTop: 20 }}>
             <div
               style={{
                 // alignItems: "center",
                 backgroundColor: "white",
-                paddingLeft: 5,
-                paddingRight: 5,
+                paddingLeft: 20,
+                paddingRight: 20,
                 borderRadius: 10,
+                paddingTop: 8,
+                paddingBottom: 8,
                 cursor: "pointer",
+                diplay: "flex",
               }}
             >
               <FaPlay size={15} />
@@ -103,11 +121,13 @@ function Home() {
               style={{
                 // alignItems: "center",
                 backgroundColor: "rgba(0,0,0,0.5)",
-                paddingLeft: 5,
-                paddingRight: 5,
+                paddingLeft: 20,
+                paddingRight: 20,
                 borderRadius: 10,
-                marginLeft: 10,
+                paddingTop: 8,
+                paddingBottom: 8,
                 cursor: "pointer",
+                diplay: "flex",
               }}
             >
               <BiInfoCircle color={Colors.white} size={20} />
@@ -121,14 +141,12 @@ function Home() {
         </div>
       </div>
       <div style={{ marginTop: -(width / 5), zIndex: 5, left: width / 30 }}>
+        <TopTen title={"Top 10 in India"} fetchUrl={Requests.fetchTopTen} />
         <CategoryList
           title={"NETFLIX ORIGINALS"}
           fetchUrl={Requests.fetchNetflixOriginals}
         />
-        <CategoryList
-          title={"Trending Now"}
-          fetchUrl={Requests.fetchTrending}
-        />
+
         <CategoryList
           title={"NETFLIX ORIGINALS"}
           fetchUrl={Requests.fetchNetflixOriginals}
