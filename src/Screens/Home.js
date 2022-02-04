@@ -9,6 +9,7 @@ import CategoryList from "../Components.js/CategoryList";
 import Requests from "../Requests/Requests";
 import instance from "./../Requests/axios";
 import TopTen from "./../Components.js/TopTen";
+
 function Home() {
   const { width, height } = useWindowDimensions();
   const [movies, setMovies] = useState({});
@@ -92,7 +93,10 @@ function Home() {
 
               fontFamily: "DM Sans",
               left: width / 30,
+              textOverflow: "ellipsis",
+              webkitlineclamp: 3,
             }}
+            className="description"
           >
             {movies.overview}
           </a>
@@ -128,6 +132,7 @@ function Home() {
                 paddingBottom: 8,
                 cursor: "pointer",
                 diplay: "flex",
+                marginLeft: 8,
               }}
             >
               <BiInfoCircle color={Colors.white} size={20} />
@@ -140,20 +145,31 @@ function Home() {
           </div>
         </div>
       </div>
-      <div style={{ marginTop: -(width / 5), zIndex: 5, left: width / 30 }}>
+      <div
+        style={{
+          marginTop: -(width / 6),
+          zIndex: 5,
+          left: width / 30,
+          marginBottom: 70,
+        }}
+      >
+        <CategoryList
+          title={"NETFLIX ORIGINALS"}
+          fetchUrl={Requests.fetchNetflixOriginals}
+        />
         <TopTen title={"Top 10 in India"} fetchUrl={Requests.fetchTopTen} />
+        <CategoryList title={"Action"} fetchUrl={Requests.fetchAction} />
+        <CategoryList title={"Crime"} fetchUrl={Requests.fetchCrime} />
         <CategoryList
-          title={"NETFLIX ORIGINALS"}
-          fetchUrl={Requests.fetchNetflixOriginals}
+          title={"Staff Picks"}
+          subTitle={"Selected by our India curation specialist"}
+          fetchUrl={Requests.fetchTopRated}
         />
-
+        <CategoryList title={"Drama"} fetchUrl={Requests.fetchDrama} />
+        <CategoryList title={"Fantasy"} fetchUrl={Requests.fetchFantasy} />
         <CategoryList
-          title={"NETFLIX ORIGINALS"}
-          fetchUrl={Requests.fetchNetflixOriginals}
-        />
-        <CategoryList
-          title={"Trending Now"}
-          fetchUrl={Requests.fetchTrending}
+          title={"Upcomming Movies"}
+          fetchUrl={Requests.fetchUpcomming}
         />
       </div>
     </div>

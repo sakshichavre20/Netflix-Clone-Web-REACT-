@@ -18,10 +18,13 @@
     rgba(0, 0, 0, 0)
   );
 }
+
 .categoryImg {
   margin-left: 20px;
   margin-top: 10px;
 }
+
+/* ROWS STYLES */
 
 .row_container::-webkit-scrollbar {
   display: none;
@@ -39,70 +42,29 @@
   border: solid 1px transparent;
   margin: 0 -1px;
 }
-
-/* .firstMovie {
-  width: 100%;
-  height: 90vh;
-  object-fit: cover;
-
-  display: block;
-  background-color: "rgba(0, 0, 0, 0.5)";
-  overflow-x: hidden;
-}
-.imgBackdrop {
-  display: flex;
-  position: absolute;
-  
-  width: 100%;
-  height: 90vh;
-  background: rgba(0, 0, 0, 0.6);
-  overflow-y: hidden;
-  overflow-x: hidden;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
+.description {
+  -webkit-line-clamp: 4;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
-.movieName {
-  font-family: "Staatliches", cursive;
-  
-  letter-spacing: 1.5px;
-}
-.MovieDetail {
+.imageStyle {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  margin-left: 50px;
 }
 
-.button {
-  padding: 10px;
-  padding-inline: 20px;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border-radius: 10px;
-  cursor: pointer;
+.box:hover {
+  box-shadow: 0 10px blue;
+  transition: box-shadow 0.3s;
 }
-.ButtonText {
-  font-size: 18px;
-  font-family: "DM Sans", sans-serif;
-  color: white;
-  cursor: pointer;
-  margin-left: 5px;
+
+.imageStyle:hover {
+  transition: box-shadow 0.3s;
+  transform: scale(1.5, 1.5);
+  box-shadow: 0 10px rgba(0, 0, 0, 0);
+  display: "flex";
+  height: scale(1);
+  width: auto;
 }
-.poster_fade {
-  width: 100%;
-  background-image: linear-gradient(
-    to top,
-    #141414,
-    #141414cf,
-    #14141466,
-    #14141422,
-    rgba(0, 0, 0, 0)
-  );
-  
-.categoryImg {
-  margin-left: 20px;
-} */
