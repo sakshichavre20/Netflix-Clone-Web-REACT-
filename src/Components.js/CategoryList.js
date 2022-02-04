@@ -4,12 +4,29 @@ import { Colors, useWindowDimensions } from "../Constants/Constants";
 import instance from "../Requests/axios";
 import axios from "axios";
 import requests from "../Requests/Requests";
-import { AiFillStar } from "react-icons/ai";
+import {
+  AiFillStar,
+  AiOutlinePlusCircle,
+  AiFillDislike,
+  AiFillLike,
+  AiOutlineDownCircle,
+  AiFillPlayCircle,
+} from "react-icons/ai";
+import { BsPlayCircle, BsFillPlayCircleFill } from "react-icons/bs";
 
-function CategoryList({ title, fetchUrl, subTitle }) {
+function CategoryList({
+  title,
+  fetchUrl,
+  subTitle,
+  setDetail,
+  setDetailID,
+  setMovieDetail,
+}) {
   const { width, height } = useWindowDimensions();
   const imgURL = "https://image.tmdb.org/t/p/original/";
   const [movies, setMovies] = useState([]);
+  const [hover, setHover] = useState("");
+  const [hoverclick, setHoverClick] = useState(false);
   const API_KEY = "82129b20ece7b87e8bb55c46b129712e";
   useEffect(() => {
     async function fetchData() {
@@ -20,29 +37,53 @@ function CategoryList({ title, fetchUrl, subTitle }) {
     }
     fetchData();
   }, [fetchUrl]);
-  console.log(title, "+", movies);
+  // console.log(title, "+", movies);
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        marginLeft: width / 30,
+        paddingLeft: width / 30,
+        paddingTop: 20,
       }}
     >
-      <h2 style={{ color: "white" }}>{title}</h2>
+      <a style={{ color: "white", fontSize: 20, fontWeight: "bold" }}>
+        {title}
+      </a>
       {fetchUrl === requests.fetchTopRated && (
-        <a style={{ color: "white", position: "relative", bottom: 15 }}>
+        <a style={{ color: "white", position: "relative", bottom: 5 }}>
           {subTitle}
         </a>
       )}
       <div
-        style={{ width: "100%", display: "flex", overflowX: "scroll" }}
+        style={{
+          width: "100%",
+          display: "flex",
+          overflowX: "scroll",
+          paddingTop: hoverclick ? 30 : 10,
+          paddingLeft: 20,
+          paddingBottom: hoverclick ? 50 : null,
+        }}
         className="row_container"
       >
         {movies.map((movie) => (
           <div
+            onMouseOver={() => {
+              setHover(movie.id);
+              setHoverClick(true);
+            }}
+            onMouseOut={() => {
+              setHover("");
+              setHoverClick(false);
+            }}
             style={{ display: "flex", flexDirection: "column", margin: 10 }}
             className="imageStyle"
+            onClick={() => {
+              // fetchMovie(item.id);
+              setDetail(true);
+              setDetailID(movie.id);
+              setMovieDetail(movie);
+            }}
           >
             <img
               src={`${imgURL}${movie.backdrop_path}`}
@@ -56,6 +97,52 @@ function CategoryList({ title, fetchUrl, subTitle }) {
                 borderTopRightRadius: 3,
               }}
             />
+            {hover === movie.id ? (
+              <div
+                style={{
+                  backgroundColor: "rgb(35, 35, 35)",
+                  paddingTop: 10,
+                  paddingBottom: 10,
+                  paddingLeft: 10,
+                  paddingRight: 10,
+                  borderBottomLeftRadius: 5,
+                  borderBottomRightRadius: 5,
+                  flexDirection: "column",
+                  display: "flex",
+                  // borderRadius: 3,
+                }}
+              >
+                <div
+                  style={{
+                    justifyContent: "space-between",
+                    // paddingLeft: 10,
+                    display: "flex",
+                  }}
+                >
+                  <div style={{ alignItems: "center" }}>
+                    <BsFillPlayCircleFill
+                      color="white"
+                      style={{ margin: 2 }}
+                      size={20}
+                    />
+                    <AiOutlinePlusCircle
+                      color="white"
+                      style={{ margin: 2 }}
+                      size={20}
+                    />
+                    <AiFillLike color="white" style={{ margin: 2 }} size={20} />
+                    <AiFillDislike
+                      color="white"
+                      style={{ margin: 2 }}
+                      size={20}
+                    />
+                  </div>
+                  <div>
+                    <AiOutlineDownCircle color="white" size={20} />
+                  </div>
+                </div>
+              </div>
+            ) : null}
             {fetchUrl === requests.fetchTopRated && (
               <div
                 style={{

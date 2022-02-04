@@ -18,7 +18,7 @@ function TopTen({ title, fetchUrl }) {
     }
     fetchData();
   }, [fetchUrl]);
-  console.log(title, "+", movies);
+  // console.log(title, "+", movies);
   return (
     <div
       style={{

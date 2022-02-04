@@ -1,0 +1,32 @@
+.DetailModelContainer {
+  display: "flex";
+  align-self: center;
+  width: 50vw;
+  background-color: #000000;
+  height: 95vh;
+
+  z-index: 200;
+  position: absolute;
+  top: 5vh;
+  overflow-x: hidden;
+}
+.image {
+  width: "100%";
+  height: 100px;
+  object-fit: cover;
+}
+.poster_fade {
+  background-image: linear-gradient(
+    to top,
+    black,
+    #000000cf,
+    #00000066,
+    #00000022,
+    rgba(0, 0, 0, 0)
+  );
+}
+.Content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}

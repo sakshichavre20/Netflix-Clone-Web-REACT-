@@ -9,10 +9,14 @@ import CategoryList from "../Components.js/CategoryList";
 import Requests from "../Requests/Requests";
 import instance from "./../Requests/axios";
 import TopTen from "./../Components.js/TopTen";
+import DetailModel from "../Components.js/DetailModel";
 
 function Home() {
   const { width, height } = useWindowDimensions();
   const [movies, setMovies] = useState({});
+  const [detail, setDetail] = useState(false);
+  const [detailID, setDetailID] = useState("");
+  const [movieDetail, setMovieDetail] = useState({});
   const id = Math.floor(Math.random() * 20);
   const imgURL = "https://image.tmdb.org/t/p/original/";
   useEffect(() => {
@@ -27,11 +31,18 @@ function Home() {
 
   return (
     <div className="homeContainer">
+      {detail && (
+        <DetailModel
+          id={detailID}
+          movieDetail={movieDetail}
+          setDetail={setDetail}
+        />
+      )}
       <div
         style={{
           width: width,
           height: (width * 9) / 16,
-          backgroundColor: "grey",
+          backgroundColor: "#000000",
         }}
       >
         <img
@@ -156,20 +167,47 @@ function Home() {
         <CategoryList
           title={"NETFLIX ORIGINALS"}
           fetchUrl={Requests.fetchNetflixOriginals}
+          setDetail={setDetail}
+          setDetailID={setDetailID}
+          setMovieDetail={setMovieDetail}
         />
         <TopTen title={"Top 10 in India"} fetchUrl={Requests.fetchTopTen} />
-        <CategoryList title={"Action"} fetchUrl={Requests.fetchAction} />
-        <CategoryList title={"Crime"} fetchUrl={Requests.fetchCrime} />
+        <CategoryList
+          title={"Action"}
+          fetchUrl={Requests.fetchAction}
+          setDetail={setDetail}
+          setDetailID={setDetailID}
+        />
+        <CategoryList
+          title={"Crime"}
+          fetchUrl={Requests.fetchCrime}
+          setDetail={setDetail}
+          setDetailID={setDetailID}
+        />
         <CategoryList
           title={"Staff Picks"}
           subTitle={"Selected by our India curation specialist"}
           fetchUrl={Requests.fetchTopRated}
+          setDetail={setDetail}
+          setDetailID={setDetailID}
         />
-        <CategoryList title={"Drama"} fetchUrl={Requests.fetchDrama} />
-        <CategoryList title={"Fantasy"} fetchUrl={Requests.fetchFantasy} />
+        <CategoryList
+          title={"Drama"}
+          fetchUrl={Requests.fetchDrama}
+          setDetail={setDetail}
+          setDetailID={setDetailID}
+        />
+        <CategoryList
+          title={"Fantasy"}
+          fetchUrl={Requests.fetchFantasy}
+          setDetail={setDetail}
+          setDetailID={setDetailID}
+        />
         <CategoryList
           title={"Upcomming Movies"}
           fetchUrl={Requests.fetchUpcomming}
+          setDetail={setDetail}
+          setDetailID={setDetailID}
         />
       </div>
     </div>
@@ -177,64 +215,3 @@ function Home() {
 }
 
 export default Home;
-{
-  /*
-   <img
-          src="https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/1322/441322-h"
-          className="firstMovie"
-        />
-        <div className="imgBackdrop">
-          <div className="MovieDetail">
-            <a
-              style={{ color: "white", fontSize: width / 25 }}
-              className="movieName"
-            >
-              {" "}
-              JUNGLEE
-            </a>
-            <a
-              style={{
-                fontSize: width / 60,
-                maxWidth: "40vw",
-                color: "white",
-              }}
-            >
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
-            </a>
-            <div
-              style={{ marginTop: 30, flexDirection: "row", display: "flex" }}
-            >
-              <div className="button">
-                <FaPlay />
-                <a className="ButtonText" style={{ color: "black" }}>
-                  Play
-                </a>
-              </div>
-              <div
-                className="button"
-                style={{
-                  marginLeft: 30,
-                  backgroundColor: "rgba(225,225,225,0.3)",
-                }}
-              >
-                <BiInfoCircle color={Colors.white} />
-                <a className="ButtonText" style={{ color: "white" }}>
-                  More Info
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="poster_fade"
-          style={{
-            //backgroundColor: "red",
-            position: "relative",
-            bottom: 30,
-            height: "5vh",
-          }}
-        ></div>
-       
-        <CategoryList title={"Play on Netflix"} />*/
-}
