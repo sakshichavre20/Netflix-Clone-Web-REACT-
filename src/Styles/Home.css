@@ -58,7 +58,7 @@
 
 .imageStyle:hover {
   transition: box-shadow 0.3s;
-  transform: scale(1.7, 1.7);
+  transform: scale(1.4, 1.4);
   box-shadow: 0 10px rgba(0, 0, 0, 0);
   display: "flex";
   height: scale(1);

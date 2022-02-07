@@ -75,7 +75,7 @@ function DetailModel({ id, movieDetail, setDetail }) {
         <a style={{ color: "white", fontWeight: "bold", fontSize: 24 }}>
           {data.original_title}
         </a>
-        <div style={{ display: "flex", alignItems: "center", padingTop: 20 }}>
+        <div style={{ display: "flex", alignItems: "center", paddingTop: 20 }}>
           <AiTwotoneStar color="yellow" style={{ paddingRight: 5 }} />
           <a style={{ color: "white", paddingRight: 10 }}>
             {data.vote_average}
@@ -90,6 +90,33 @@ function DetailModel({ id, movieDetail, setDetail }) {
         <a style={{ color: "white", paddingTop: 20 }}>
           Description : {data.overview}
         </a>
+        <div
+          style={{
+            flexDirection: "row",
+            display: "flex",
+            // backgroundColor: "pink",
+            paddingTop: 20,
+          }}
+        >
+          {data.genres?.map((genres) => (
+            <div
+              key={genres.id}
+              style={{
+                borderRadius: 20,
+                paddingLeft: 8,
+                paddingRight: 8,
+                paddingTop: 5,
+                paddingBottom: 5,
+                borderWidth: 1,
+                border: "solid 1px #2d2d2d",
+                //  backgroundColor: "red",
+                margin: 2,
+              }}
+            >
+              <a style={{ color: "white" }}>{genres.name}</a>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

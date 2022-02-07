@@ -160,7 +160,7 @@ function Home() {
         style={{
           marginTop: -(width / 6),
           zIndex: 5,
-          left: width / 30,
+          paddingLeft: width / 90,
           marginBottom: 70,
         }}
       >

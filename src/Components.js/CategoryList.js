@@ -43,7 +43,7 @@ function CategoryList({
       style={{
         display: "flex",
         flexDirection: "column",
-        paddingLeft: width / 30,
+        //   paddingLeft: hoverclick ? width / 10 : 20,
         paddingTop: 20,
       }}
     >
@@ -61,7 +61,7 @@ function CategoryList({
           display: "flex",
           overflowX: "scroll",
           paddingTop: hoverclick ? 30 : 10,
-          paddingLeft: 20,
+          paddingLeft: hoverclick ? width / 25 : 20,
           paddingBottom: hoverclick ? 50 : null,
         }}
         className="row_container"
@@ -76,7 +76,12 @@ function CategoryList({
               setHover("");
               setHoverClick(false);
             }}
-            style={{ display: "flex", flexDirection: "column", margin: 10 }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              margin: 10,
+              // paddingLeft: hoverclick ? width / 10 : 20,
+            }}
             className="imageStyle"
             onClick={() => {
               // fetchMovie(item.id);
