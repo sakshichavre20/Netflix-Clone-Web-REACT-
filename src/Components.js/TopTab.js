@@ -58,7 +58,7 @@ function TopTab(props) {
                 // fontSize:  16px + (24 - 16) * (100vw - 400px) / (800 - 400) ,
               }}
               className="text"
-              href="/"
+              href="/home"
             >
               Home
             </a>

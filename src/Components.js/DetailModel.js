@@ -19,7 +19,7 @@ function DetailModel({ id, movieDetail, setDetail }) {
         //   setData(res.data.data);
         //   setLoading(false);
       })
-      .catch((e) => console.log(e.response.data.message));
+      .catch((e) => console.log("error"));
   }, []);
   console.log(id, "======", movieDetail);
   function timeConvert(n) {
@@ -39,17 +39,34 @@ function DetailModel({ id, movieDetail, setDetail }) {
         borderTopRightRadius: 10,
       }}
     >
-      <ImCross
-        color={"white"}
+      <div
         style={{
+          diplay: "flex",
           position: "absolute",
-          right: 0,
-          padding: 30,
+          right: 5,
+          // padding: 10,
           cursor: "pointer",
-        }}
-        onClick={() => setDetail(false)}
-      />
 
+          backgroundColor: "black",
+          borderRadius: 50,
+          height: 40,
+          width: 40,
+          top: 5,
+          //  alignContent: "center",
+        }}
+      >
+        <ImCross
+          color={"white"}
+          onClick={() => setDetail(false)}
+          //size={15}
+          style={{
+            alignSelf: "center",
+            position: "absolute",
+            top: "30%",
+            left: "30%",
+          }}
+        />
+      </div>
       <img
         //src="https://image.tmdb.org/t/p/original//eG0oOQVsniPAuecPzDD1B1gnYWy.jpg"
         src={`${imgURL}${data.backdrop_path}`}

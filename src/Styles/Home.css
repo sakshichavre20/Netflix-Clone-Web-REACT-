@@ -53,14 +53,14 @@
 .imageStyle {
   display: flex;
   flex-direction: column;
-  transition: 500ms;
+  transition: 200ms;
 }
 
 .imageStyle:hover {
+  display: flex;
   transition: box-shadow 0.3s;
   transform: scale(1.4, 1.4);
   box-shadow: 0 10px rgba(0, 0, 0, 0);
-  display: "flex";
-  height: scale(1);
-  width: auto;
+  /* height: scale(1);
+  width: auto; */
 }

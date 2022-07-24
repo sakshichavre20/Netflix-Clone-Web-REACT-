@@ -164,20 +164,21 @@ function Home() {
           marginBottom: 70,
         }}
       >
-        <CategoryList
+        {/* <CategoryList
           title={"NETFLIX ORIGINALS"}
           fetchUrl={Requests.fetchNetflixOriginals}
           setDetail={setDetail}
           setDetailID={setDetailID}
           setMovieDetail={setMovieDetail}
-        />
-        <TopTen title={"Top 10 in India"} fetchUrl={Requests.fetchTopTen} />
+        /> */}
         <CategoryList
           title={"Action"}
           fetchUrl={Requests.fetchAction}
           setDetail={setDetail}
           setDetailID={setDetailID}
         />
+        <TopTen title={"Top 10 in India"} fetchUrl={Requests.fetchTopTen} />
+
         <CategoryList
           title={"Crime"}
           fetchUrl={Requests.fetchCrime}

@@ -127,23 +127,31 @@ function CategoryList({
                   <div style={{ alignItems: "center" }}>
                     <BsFillPlayCircleFill
                       color="white"
-                      style={{ margin: 2 }}
+                      style={{ margin: 2, cursor: "pointer" }}
                       size={20}
                     />
                     <AiOutlinePlusCircle
                       color="white"
-                      style={{ margin: 2 }}
+                      style={{ margin: 2, cursor: "pointer" }}
                       size={20}
                     />
-                    <AiFillLike color="white" style={{ margin: 2 }} size={20} />
+                    <AiFillLike
+                      color="white"
+                      style={{ margin: 2, cursor: "pointer" }}
+                      size={20}
+                    />
                     <AiFillDislike
                       color="white"
-                      style={{ margin: 2 }}
+                      style={{ margin: 2, cursor: "pointer" }}
                       size={20}
                     />
                   </div>
                   <div>
-                    <AiOutlineDownCircle color="white" size={20} />
+                    <AiOutlineDownCircle
+                      color="white"
+                      size={20}
+                      style={{ cursor: "pointer" }}
+                    />
                   </div>
                 </div>
               </div>

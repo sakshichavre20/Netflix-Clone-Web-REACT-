@@ -10,7 +10,42 @@ import {
 } from "react-router-dom";
 import TvShows from "./Screens/TvShows";
 import TopTab from "./Components.js/TopTab";
+import Login from "./Screens/Auth/Login";
 function App() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",
+        width: "100vw",
+      }}
+    >
+      <Auth />
+      <Navigation />
+    </div>
+  );
+}
+function Auth() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",
+        width: "100vw",
+        //   overflow: "hidden",
+        //   overflowX: "hidden",
+      }}
+    >
+      <Routes>
+        <Route path="/" element={<Login />} />
+      </Routes>
+    </div>
+  );
+}
+
+function Navigation() {
   return (
     <div
       style={{
@@ -22,11 +57,10 @@ function App() {
     >
       <TopTab />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/tvShows" element={<TvShows />} />
       </Routes>
     </div>
   );
 }
-
 export default App;
