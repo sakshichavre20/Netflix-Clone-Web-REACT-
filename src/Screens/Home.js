@@ -12,6 +12,7 @@ import TopTen from "./../Components.js/TopTen";
 import DetailModel from "../Components.js/DetailModel";
 
 function Home() {
+  console.log("entered home");
   const { width, height } = useWindowDimensions();
   const [movies, setMovies] = useState({});
   const [detail, setDetail] = useState(false);

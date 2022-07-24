@@ -21,8 +21,13 @@ function App() {
         width: "100vw",
       }}
     >
-      <Auth />
-      <Navigation />
+      <Routes>
+        <Route path="/" element={<Auth />} />
+        <Route path="/navigation/*" element={<Navigation />} />
+        {/* <Route path="/home" element={<Home />} /> */}
+      </Routes>
+      {/* <Auth />
+      <Navigation /> */}
     </div>
   );
 }
